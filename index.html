@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Melhorada</title>
+    <style>
+        /* Resetando margens e preenchimento */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #87CEEB; /* Cor do céu */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .casa {
+            width: 300px;
+            height: 300px;
+            background-color: #7e7d7a; /* Cor da casa (amarela) */
+            position: relative;
+            border: 2px solid #000; /* Contorno da casa */
+            border-radius: 10px; /* Cantos arredondados */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidade */
+        }
+
+        .telhado {
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 100px solid #36220c; /* Cor do telhado (vermelho) */
+            position: absolute;
+            top: -100px;
+            left: 0;
+            z-index: 2; /* O telhado estará acima da chaminé */
+        }
+
+        .janela {
+            width: 70px;
+            height: 70px;
+            background-color: #87CEFA; /* Cor da janela (azul claro) */
+            position: absolute;
+            top: 60px;
+            left: 40px;
+            border: 2px solid #000;
+            border-radius: 5px; /* Bordas arredondadas */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para profundidade */
+        }
+
+        .janela:after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 70px;
+            background-color: #000; /* Divisória da janela */
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+
+        .janela:before {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 70px;
+            background-color: #000; /* Divisória da janela */
+            top: 50%;
+            left: 0;
+        }
+
+        .porta {
+            width: 100px;
+            height: 150px;
+            background-color: #8B4513; /* Cor da porta (marrom) */
+            position: absolute;
+            bottom: 0;
+            left: 100px;
+            border: 2px solid #000;
+            border-radius: 5px; /* Bordas arredondadas na porta */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra da porta */
+        }
+
+        .porta:after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #D2B48C; /* Cor da maçaneta */
+            border-radius: 50%;
+            top: 60px;
+            left: 80px;
+        }
+
+        .chaminé {
+            width: 40px;
+            height: 95px;
+            background-color: #ff8800; /* Cor da chaminé (marrom) */
+            position: absolute;
+            top: -120px;
+            right: 40px;
+            border: 2px solid #000;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave na chaminé */
+            z-index: 1; /* A chaminé está atrás do telhado */
+        }
+
+        /* Elemento de fumaça da chaminé */
+        .fumaça {
+            width: 10px;
+            height: 10px;
+            background-color: #f2f2f2; /* Cor da fumaça */
+            border-radius: 50%;
+            position: absolute;
+            top: -20px;
+            right: 10px;
+            animation: fumos 3s infinite; /* Animação da fumaça subindo */
+        }
+
+        @keyframes fumos {
+            0% {
+                opacity: 0.8;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-30px) scale(1.5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="casa">
+        <div class="telhado"></div>
+        <div class="janela"></div>
+        <div class="porta"></div>
+        <div class="chaminé">
+            <div class="fumaça"></div> <!-- Fumaça saindo da chaminé -->
+        </div>
+    </div>
+</body>
+</html>
